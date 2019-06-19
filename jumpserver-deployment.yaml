@@ -15,11 +15,13 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: sshd-jumpserver
-          image: kubernetesio/sshd-jumpserver
+          image: portertech/sshd-jumpserver:1.0.0
           ports:
-            - containerPort: 22
+            - containerPort: 2222
               protocol: TCP
           env:
+            - name: SSHD_PORT
+              value: "2222"
             - name: PUBLIC_KEY
               valueFrom:
                 secretKeyRef:

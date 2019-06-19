@@ -6,9 +6,10 @@ metadata:
   labels:
     name: sshd-jumpserver
 spec:
-  ports:
-    - name: ssh
-      port: 22
   type: "LoadBalancer"
   selector:
     app: sshd-jumpserver
+  ports:
+    - name: ssh
+      port: 22
+      targetPort: 2222
